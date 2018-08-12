@@ -70,17 +70,6 @@ func Args() Arguments {
 	return args
 }
 
-func getFileName() string {
-	isNext := false
-	for _, arg := range os.Args[1:] {
-		if isNext {
-			return arg;
-		}
-		isNext = strings.Index(strings.TrimSpace(arg), "-f") == 0
-	}
-	return "problems.csv"
-}
-
 func doQuiz(lines []string, c chan <- int) {
 	reader := bufio.NewReader(os.Stdin)
 	quiz := make([][]string, len(lines)+1)
@@ -95,7 +84,6 @@ func doQuiz(lines []string, c chan <- int) {
 		if quiz[i][1] == quiz[i][2] {
 			goodAnswers++
 		}
-		fmt.Println(quiz[i])
 	}
 	c <- goodAnswers
 }
