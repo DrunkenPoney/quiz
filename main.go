@@ -45,13 +45,13 @@ func Args() Arguments {
 		case "--file":
 		case "--csv":
 			args.csv = arg
-			break;
+			break
 		case "-l":
 		case "--limit":
 			i, err := strconv.ParseUint(arg, 10, 64)
 			check(err)
 			args.limit = int(i)
-			break;
+			break
 		case "--help":
 		case "-h":
 			fmt.Println("Usage of quiz:")
@@ -62,7 +62,7 @@ func Args() Arguments {
 			fmt.Println("  -h --help")
 			fmt.Println("  		shows this message")
 			os.Exit(0)
-			break;
+			break
 		}
 		prev = arg
 	}
